@@ -60,8 +60,12 @@
         <activity
             android:name=".View.NotifyDetailActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".View.LoadingActivity" />
-        <activity android:name=".View.TutorialActivity"></activity>
+
+        <activity android:name=".View.LoadingActivity"
+            android:screenOrientation="portrait" />
+
+        <activity android:name=".View.TutorialActivity"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>
