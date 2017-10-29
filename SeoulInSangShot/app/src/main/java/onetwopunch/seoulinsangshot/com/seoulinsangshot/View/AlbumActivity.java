@@ -206,7 +206,7 @@ public class AlbumActivity extends AppCompatActivity implements CustomDialog.OnC
                     }
                     else if(mData.size()==2)
                     {
-                        intent.putExtra("url",mData.get(0).getUrl());
+                        intent.putExtra("url",mData.get(i%mData.size()).getUrl());
                         intent.putExtra("image",mData.get(i%mData.size()).getUrl());
                         intent.putExtra("email",mData.get(i%mData.size()).getId());
                         intent.putExtra("tip",mData.get(i%mData.size()).getTip());
@@ -216,7 +216,7 @@ public class AlbumActivity extends AppCompatActivity implements CustomDialog.OnC
                         startActivity(intent);
                     }
                     else{
-                        intent.putExtra("url",mData.get(0).getUrl());
+                        intent.putExtra("url",mData.get(i%mData.size()).getUrl());
                         intent.putExtra("image",mData.get(i%mData.size()).getUrl());
                         intent.putExtra("email",mData.get(i%mData.size()).getId());
                         intent.putExtra("tip",mData.get(i%mData.size()).getTip());
