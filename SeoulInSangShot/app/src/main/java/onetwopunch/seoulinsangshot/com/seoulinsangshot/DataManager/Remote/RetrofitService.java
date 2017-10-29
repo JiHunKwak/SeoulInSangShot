@@ -44,6 +44,7 @@ public interface RetrofitService {
 
     @GET("/upload")
     Call<BestVO> getBestData();
+
     @GET("/likeimg")
     Call<LikeCountVO>getLikeData();
 
