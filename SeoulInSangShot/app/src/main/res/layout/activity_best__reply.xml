@@ -1,36 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:background="@drawable/app_background"
     android:gravity="center">
 
     <RelativeLayout
         android:id="@+id/card_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
-        android:elevation="4dp"
-        android:layout_alignParentTop="true"
+        android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_weight="1"
+        android:background="@android:color/transparent"
+        android:elevation="4dp">
 
         <RelativeLayout
             android:id="@+id/rel_layout"
             android:layout_width="match_parent"
-            android:background="@android:color/transparent"
             android:layout_height="300dp"
-            android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true">
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:background="@android:color/transparent">
 
             <com.github.oliveiradev.image_zoom.lib.widget.ImageZoom
                 android:id="@+id/img_best_cover"
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
+                android:layout_height="220dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
                 android:adjustViewBounds="true"
                 android:scaleType="fitCenter"
                 android:src="@drawable/sunny"
@@ -63,22 +68,21 @@
                 android:id="@+id/best_reply_likeText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="0 likes "
-                android:textColor="#ffffff"
-                android:textStyle="bold"
                 android:layout_above="@+id/email_layout"
                 android:layout_alignLeft="@+id/dislike"
                 android:layout_alignStart="@+id/dislike"
+                android:layout_marginBottom="3dp"
                 android:layout_marginLeft="11dp"
                 android:layout_marginStart="11dp"
-                android:layout_marginBottom="3dp"
-                />
+                android:text="0 likes "
+                android:textColor="#ffffff"
+                android:textStyle="bold" />
 
             <LinearLayout
                 android:id="@+id/email_layout"
-                android:layout_below="@id/img_best_cover"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_below="@id/img_best_cover">
 
                 <TextView
                     android:id="@+id/txt_best_name"
@@ -94,16 +98,16 @@
 
             <LinearLayout
                 android:id="@+id/tip_layout"
-                android:layout_below="@+id/email_layout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/email_layout">
 
                 <TextView
                     android:id="@+id/txt_best_tip"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:lines="4"
+                    android:maxLines="4"
                     android:paddingRight="10dp"
                     android:text="TIP"
                     android:textAppearance="?android:attr/textAppearanceSmall"
@@ -187,11 +191,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:orientation="horizontal">
-                </LinearLayout>
+                    android:orientation="horizontal"></LinearLayout>
 
             </LinearLayout>
-
 
 
         </RelativeLayout>
@@ -201,19 +203,12 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/card_view">
+        android:layout_below="@+id/card_view"
+        android:layout_weight="1.5"
+        android:orientation="vertical">
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/rv_reply"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            card_view:stackFromEnd="false"
-
-            />
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/best_reply_commentFAB"
             android:layout_width="wrap_content"
@@ -238,7 +233,6 @@
                 android:layout_height="wrap_content"
 
 
-                android:maxLength="100"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentLeft="false"
                 android:layout_alignParentStart="false"
@@ -251,12 +245,12 @@
                 android:hint="INPUT YOUR MESSAGE"
                 android:imeOptions="actionDone"
                 android:inputType="textPersonName"
+                android:maxLength="100"
                 android:paddingLeft="5dp"
                 android:paddingTop="10dp"
                 android:textColor="@android:color/white"
                 android:textSize="20dp"
-                android:visibility="gone"
-                >
+                android:visibility="gone">
 
             </EditText>
 
@@ -276,6 +270,15 @@
 
         </RelativeLayout>
 
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_reply"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            card_view:stackFromEnd="false"
+
+            />
+
     </FrameLayout>
 
-</RelativeLayout>
+</LinearLayout>
