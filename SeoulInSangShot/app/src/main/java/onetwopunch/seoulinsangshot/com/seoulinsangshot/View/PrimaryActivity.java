@@ -1,6 +1,7 @@
 package onetwopunch.seoulinsangshot.com.seoulinsangshot.View;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -130,6 +131,9 @@ public class PrimaryActivity extends AppCompatActivity implements CustomDialog.O
         fragmentTheme = new Fragment_Show_Theme();
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Drawable d = getResources().getDrawable(R.drawable.actionbar);
+        toolbar.setBackgroundDrawable(d);
+        toolbar.setTitle("");
         setSupportActionBar(toolbar);
 
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
